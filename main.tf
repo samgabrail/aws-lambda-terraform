@@ -13,7 +13,7 @@ provider "aws" {
 
 resource "aws_lambda_function" "example_lambda" {
   function_name = "example_lambda"
-  runtime = "python3.8"
+  runtime = "python3.9"
   role = "${aws_iam_role.lambda_role.arn}"
   handler = "handler.lambda_handler"
   source_code_hash = "${base64sha256(file("lambda_function.zip"))}"
