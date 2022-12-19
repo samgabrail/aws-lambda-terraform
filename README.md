@@ -12,13 +12,13 @@ pipenv requirements > requirements.txt
 2. Install the requests library to a new package directory.
 
 ```bash
-pip install --target ./package -r requirements.txt
+pip install --target ./infrastructure/package -r requirements.txt
 ```
 
 3. Create a deployment package with the installed library at the root.
 
 ```bash
-cd package
+cd infrastructure/package
 zip -r ../my-deployment-package.zip .
 ```
 

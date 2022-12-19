@@ -17,7 +17,7 @@ resource "aws_lambda_function" "example_lambda" {
   role          = aws_iam_role.lambda_role.arn
   handler       = "main.lambda_handler"
   filename      = "my-deployment-package.zip"
-    depends_on = [
+  depends_on = [
     aws_iam_role_policy_attachment.lambda_logs,
     aws_cloudwatch_log_group.example,
   ]
@@ -109,7 +109,7 @@ resource "aws_lambda_permission" "apigw_lambda" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.example_lambda.function_name
   principal     = "apigateway.amazonaws.com"
-  source_arn = "arn:aws:execute-api:${var.myregion}:${var.accountId}:${aws_api_gateway_rest_api.example_api.id}/*/${aws_api_gateway_method.example_method.http_method}${aws_api_gateway_resource.example_resource.path}"
+  source_arn    = "arn:aws:execute-api:${var.myregion}:${var.accountId}:${aws_api_gateway_rest_api.example_api.id}/*/${aws_api_gateway_method.example_method.http_method}${aws_api_gateway_resource.example_resource.path}"
 }
 
 resource "aws_api_gateway_deployment" "example" {
@@ -122,6 +122,8 @@ resource "aws_api_gateway_deployment" "example" {
   lifecycle {
     create_before_destroy = true
   }
+  depends_on = [aws_api_gateway_method.example_method, aws_api_gateway_integration.integration]
+
 }
 
 resource "aws_api_gateway_stage" "example" {
