@@ -3,20 +3,29 @@
 {
 	"name": "Python 3",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/python:0-3.8-bullseye",
+	"image": "mcr.microsoft.com/devcontainers/python:0-3.9-bullseye",
 	"features": {
 		"ghcr.io/devcontainers/features/aws-cli:1": {},
 		"ghcr.io/devcontainers-contrib/features/pipenv:1": {},
+		"ghcr.io/devcontainers/features/docker-from-docker:1": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers/features/terraform:1": {},
 		"ghcr.io/devcontainers-contrib/features/terraform-asdf:1": {},
-		"ghcr.io/devcontainers-contrib/features/terraform-ls-asdf:1": {}
+		"ghcr.io/devcontainers-contrib/features/terraform-ls-asdf:1": {},
+		"ghcr.io/rio/features/k3d:1": {}
 	},
+
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
+
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
+
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+
 	// Configure tool-specific properties.
+	// "customizations": {},
 	"customizations": {
 		// Configure properties specific to VS Code.
 		"vscode": {

@@ -1,1 +1,1 @@
-currencyconverter==0.17.3
+forex-python==1.8

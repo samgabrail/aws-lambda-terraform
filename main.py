@@ -1,11 +1,16 @@
-from currency_converter import CurrencyConverter
+from forex_python.converter import CurrencyRates
 
 
-def convert_currency(amount: int, fromCurrency: str, toCurrency: str):
-    c = CurrencyConverter()
-    res = c.convert(amount, fromCurrency, toCurrency)
+def lambda_handler(event, context):
+    res = convert_currency(
+        event['amount'], event['fromCurrency'], event['toCurrency'])
     return res
 
 
-res = convert_currency(1, 'USD', 'CAD')
-print(res)
+def convert_currency(amount: float, fromCurrency: str, toCurrency: str) -> int:
+    """
+    Function to convert an amount from one currency to another
+    """
+    c = CurrencyRates()
+    res = c.convert(fromCurrency, toCurrency, float(amount))
+    return res
