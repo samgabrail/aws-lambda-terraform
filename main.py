@@ -1,5 +1,10 @@
+import logging
 import json
 from forex_python.converter import CurrencyRates
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
 
 def lambda_handler(event, context):
     """
@@ -8,11 +13,14 @@ def lambda_handler(event, context):
     amount = event['queryStringParameters']['amount']
     fromCurrency = event['queryStringParameters']['fromCurrency']
     toCurrency = event['queryStringParameters']['toCurrency']
+    logger.info('## Input Parameters: %s, %s, %s', amount, fromCurrency, toCurrency)
     res = convert_currency(amount, fromCurrency, toCurrency)
+    logger.info('## Currency result: %s', res)
     response = {
         "statusCode": 200,
         "body": json.dumps({'result': res}),
     }
+    logger.info('## Response returned: %s', response)
     return response
 
 
