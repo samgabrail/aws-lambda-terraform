@@ -24,10 +24,10 @@ def lambda_handler(event, context):
     return response
 
 
-def convert_currency(amount: float, fromCurrency: str, toCurrency: str) -> int:
+def convert_currency(amount: float, fromCurrency: str, toCurrency: str) -> float:
     """
     Function to convert an amount from one currency to another
     """
     c = CurrencyRates()
     res = c.convert(fromCurrency, toCurrency, float(amount))
-    return res
+    return float(res)
