@@ -32,8 +32,8 @@ zip my-deployment-package.zip ../main.py
 5. Export your AWS Environment variables.
 
 ```bash
-export AWS_ACCESS_KEY_ID=put_your_key_here
-export AWS_SECRET_ACCESS_KEY=put_your_secret_here
+export AWS_ACCESS_KEY_ID=AKIA4TASV3ZGZXK4J6H3
+export AWS_SECRET_ACCESS_KEY=5IEdaabZWHh/1QoFr52ZLYWOq1foO3Ar6UO6N4hs
 ```
 
 6. Initialize Terraform
